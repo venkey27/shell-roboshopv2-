@@ -3,7 +3,7 @@
 app_name=shipping
 source ./common.sh
 check_root
- 
+MYSQL_HOST="mysql.exptrack.shop"
 
 app_setup
 java_setup
