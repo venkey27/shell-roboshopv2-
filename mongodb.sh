@@ -1,6 +1,5 @@
 #! /bin/bash
-source ./comman.sh
-
+source ./common.sh
 check_root
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
@@ -17,3 +16,5 @@ VALIDATE $? "allowing remote connections to mongodb"
 
 systemctl restart mongod
 VALIDATE $? "restarting mongodb"
+
+print_total_time
