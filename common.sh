@@ -90,3 +90,11 @@ java_setup(){
     VALIDATE $? "installing maven dependencies"
 }
 
+python_setup(){
+    dnf install python3 gcc python3-devel -y &>> $LOGS_FILE
+    VALIDATE $? "installing python3"
+
+    pip3 install -r requirements.txt &>> $LOGS_FILE
+    VALIDATE $? "installing python dependencies"
+}
+
