@@ -19,11 +19,7 @@ check_root(){
         echo -e " $TIMESTAMP [ERROR] $R RUN the SCRIPT WITH ROOT ACCESS $N " | tee -a $LOGS_FILE
         exit 1
     fi  
-}
-if [ $USERID -ne 0 ]; then
-    echo -e " $TIMESTAMP [ERROR] $R RUN T HE MONGODB SCRIPT WITH ROOT ACCESS $N " | tee -a $LOGS_FILE
-    exit 1
-fi  
+} 
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
