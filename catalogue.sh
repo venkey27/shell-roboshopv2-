@@ -6,9 +6,7 @@ check_root
 
 app_setup
 nodejs_setup
-
-cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service # this is the service file which we have created in our local and we are copying it to the systemd directory to avoid any issues with the path of the service file
-VALIDATE $? "copying catalogue systemd service file"
+systemd_setup
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "adding mongo repo file"
@@ -24,9 +22,5 @@ if [ $INDEX -lt 0 ]; then
 else        
     echo -e " $TIMESTAMP [INFO]  catalogue database already exists ... $G skipping database initialization$N " | tee -a $LOGS_FILE
 fi
-
-systemctl enable catalogue &>> $LOGS_FILE
-systemctl restart catalogue &>> $LOGS_FILE
-VALIDATE $? "restarting and enabling catalogue service"
 
 print_total_time
