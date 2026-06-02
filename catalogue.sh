@@ -23,4 +23,5 @@ else
     echo -e " $TIMESTAMP [INFO]  catalogue database already exists ... $G skipping database initialization$N " | tee -a $LOGS_FILE
 fi
 
+app_restart
 print_total_time
