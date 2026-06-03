@@ -25,5 +25,7 @@ cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf
 VALIDATE $? "copying new nginx configuration file"
  
 systemctl restart nginx &>> $LOGS_FILE
-app_restart
+systemctl enable nginx &>> $LOGS_FILE
+VALIDATE $? "restarting and enablingnginx service"
+
 print_total_time
